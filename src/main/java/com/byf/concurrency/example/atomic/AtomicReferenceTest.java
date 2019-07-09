@@ -1,4 +1,4 @@
-package com.byf.concurrency.atomic;
+package com.byf.concurrency.example.atomic;
 
 import com.byf.concurrency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;

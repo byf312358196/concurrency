@@ -1,6 +1,5 @@
-package com.byf.concurrency.counter;
+package com.byf.concurrency.example.atomic;
 
-import com.byf.concurrency.annoations.NotThreadSafe;
 import com.byf.concurrency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
@@ -8,16 +7,19 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @Slf4j
 @ThreadSafe
-public class ConcurrencyTest3 {
+public class ConcurrencyAtomicBooleanTest {
     private final static int clientTotal = 5000;
     private final static int threadTotal = 200;
-    private static int count = 0;
+    private static AtomicBoolean isHappend = new AtomicBoolean(false);
 
-    private synchronized static void add(){
-        count++;
+    private static void test(){
+        if (isHappend.compareAndSet(false,true)){
+            log.info("execute, isHaddped:{}", isHappend);
+        }
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -28,7 +30,7 @@ public class ConcurrencyTest3 {
             exec.execute(()->{
                 try {
                     semaphore.acquire();
-                    add();
+                    test();
                     semaphore.release();
                 } catch (InterruptedException e) {
                     log.error("exception",e);
@@ -38,6 +40,6 @@ public class ConcurrencyTest3 {
         }
         countDownLatch.await();
         exec.shutdown();
-        log.info("count:{}",count);
+        log.info("isHapped:{}",isHappend.get());
     }
 }

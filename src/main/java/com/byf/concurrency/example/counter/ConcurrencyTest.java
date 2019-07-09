@@ -1,23 +1,22 @@
-package com.byf.concurrency.atomic;
+package com.byf.concurrency.example.counter;
 
-import com.byf.concurrency.annoations.ThreadSafe;
+import com.byf.concurrency.annoations.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.LongAdder;
 
 @Slf4j
-@ThreadSafe
-public class ConcurrencyLongAdderTest {
+@NotThreadSafe
+public class ConcurrencyTest {
     private final static int clientTotal = 5000;
     private final static int threadTotal = 200;
-    private static LongAdder count = new LongAdder();
+    private static int count = 0;
 
     private static void add(){
-        count.increment();
+        count++;
     }
 
     public static void main(String[] args) throws InterruptedException {

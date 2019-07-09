@@ -1,4 +1,4 @@
-package com.byf.concurrency.publish;
+package com.byf.concurrency.example.publish;
 
 import com.byf.concurrency.annoations.NotRecommend;
 import lombok.extern.slf4j.Slf4j;

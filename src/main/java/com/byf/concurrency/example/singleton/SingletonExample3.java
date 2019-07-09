@@ -1,4 +1,4 @@
-package com.byf.concurrency.singleton;
+package com.byf.concurrency.example.singleton;
 
 import com.byf.concurrency.annoations.Recommend;
 import com.byf.concurrency.annoations.ThreadSafe;

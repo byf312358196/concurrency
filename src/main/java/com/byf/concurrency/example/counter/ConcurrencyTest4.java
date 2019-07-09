@@ -1,7 +1,6 @@
-package com.byf.concurrency.counter;
+package com.byf.concurrency.example.counter;
 
 import com.byf.concurrency.annoations.NotThreadSafe;
-import com.byf.concurrency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;
