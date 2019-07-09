@@ -50,7 +50,12 @@
 			<artifactId>servlet-api</artifactId>
 			<version>2.5-20081211</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.3</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
